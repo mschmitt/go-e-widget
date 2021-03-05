@@ -9,7 +9,7 @@
 //
 // The configuration script for configuring the widget's internals:
 //
-// - https://tbd/go-eCharger-Setup.js
+// - https://raw.githubusercontent.com/mschmitt/go-e-widget/main/go-eCharger-Setup.js
 //
 // Limitations
 // - Refresh interval can't be increased and defaults to 5-10 minutes
