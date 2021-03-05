@@ -27,9 +27,7 @@ Es wird dringend empfohlen, eine angepasste Konfiguration mit Zugriff auf den go
   - [Download with ScriptDude](https://scriptdu.de/?name=go-eCharger-Setup&source=https%3A%2F%2Fraw.githubusercontent.com%2Fmschmitt%2Fgo-e-widget%2Fmain%2Fgo-eCharger-Setup.js&docs=https%3A%2F%2Fgithub.com%2Fmschmitt%2Fgo-e-widget%2Fblob%2Fmain%2Fgo-eCharger-README.md)
 - go-eCharger-Setup.js über die Scriptable-App starten.
 - Eingabe von:
-
   - API-Token (Cloud Token)
-
   - Preis pro Kilowattstunde
   - Währungssymbol
 - Die angepasste Konfiguration ohne iCloud ist nicht getestet, aber es ist Code vorhanden, der sie unterstützt, so dass sie theoretisch vielleicht funktionieren könnte.
