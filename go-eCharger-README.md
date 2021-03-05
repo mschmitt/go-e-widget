@@ -10,14 +10,14 @@ Installation über Scriptable.app und den Scriptdude-Paketmanager:
 
 - [Scriptable.app](https://scriptable.app/) installieren.
 - [Scriptdude](https://scriptdu.de/) installieren.
-- Diesen Link klicken, um go-eCharger.js zu installieren:
+- Diesen Link klicken, um go-eCharger-Widget.js zu installieren:
   - [Download with ScriptDude](https://scriptdu.de/?name=go-eCharger-Widget&source=https%3A%2F%2Fraw.githubusercontent.com%2Fmschmitt%2Fgo-e-widget%2Fmain%2Fgo-eCharger-Widget.js&docs=https%3A%2F%2Fgithub.com%2Fmschmitt%2Fgo-e-widget%2Fblob%2Fmain%2Fgo-eCharger-README.md)
 - Neues Scriptable-Widget auf dem Homescreen anlegen.
 - go-eCharger in den Widget-Einstellungen auswählen,
 
 ## Standardkonfiguration
 
-In der Standardkonfiguration greift das Widget per WLAN direkt auf das API des go-eCharger zu. Das wird immer dann zu Problemen führen, wenn das iPhone aus dem Ruhezustand aufwacht und versucht, das Widget zu aktualisieren, während es nicht mit dem WLAN verbunden ist.
+In der Standardkonfiguration greift das Widget per WLAN direkt auf das API des go-eCharger zu. Das wird immer dann zu Problemen führen, wenn das iPhone aus dem Ruhezustand aufwacht und versucht, das Widget zu aktualisieren, während es noch nicht mit dem WLAN verbunden ist.
 
 Es wird dringend empfohlen, eine angepasste Konfiguration mit Zugriff auf den go-eCharger über die Cloud zu machen. In einer angepassten Konfiguration wird auch der Preis zur aktuell geladenen Strommenge berechnet.
 
