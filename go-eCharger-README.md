@@ -2,6 +2,8 @@
 
 Status: Doku in Überarbeitung
 
+![Screenshot](https://raw.githubusercontent.com/mschmitt/go-e-widget/main/screenshot.jpg)
+
 ## Installation
 
 Installation über Scriptable.app und den Scriptdude-Paketmanager:
