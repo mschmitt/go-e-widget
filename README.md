@@ -11,11 +11,11 @@ Installation über Scriptable.app und den Scriptdude-Paketmanager:
 - Diesen Link klicken, um go-eCharger-Widget.js zu installieren:
   - [Download with ScriptDude](https://scriptdu.de/?name=go-eCharger-Widget&source=https%3A%2F%2Fraw.githubusercontent.com%2Fmschmitt%2Fgo-e-widget%2Fmain%2Fgo-eCharger-Widget.js&docs=https%3A%2F%2Fgithub.com%2Fmschmitt%2Fgo-e-widget%2Fblob%2Fmain%2Fgo-eCharger-README.md)
 - Neues Scriptable-Widget auf dem Homescreen anlegen.
-- go-eCharger in den Widget-Einstellungen auswählen,
+- go-eCharger-Widget in den Widget-Einstellungen auswählen.
 
 ## Standardkonfiguration
 
-In der Standardkonfiguration greift das Widget per Wifi direkt auf das API des go-eCharger im selben Netz zu. Das wird selbst unter günstigen Umständen immer dann zu Problemen führen, wenn das iPhone aus dem Ruhezustand aufwacht und versucht, das Widget zu aktualisieren, während es noch nicht mit Wifi verbunden ist.
+In der Standardkonfiguration greift das Widget per Wifi direkt auf das API des go-eCharger im selben Netz zu, über den standardmäßigen vom Charger angeforderten DHCP-Hostnamen "go-echarger". Das muss nicht überall funktionieren und wird selbst unter günstigen Umständen immer dann zu Problemen führen, wenn das iPhone aus dem Ruhezustand aufwacht und versucht, das Widget zu aktualisieren, während es noch nicht mit Wifi verbunden ist.
 
 Es wird dringend empfohlen, eine angepasste Konfiguration mit Zugriff auf den go-eCharger über die Cloud zu machen. In einer angepassten Konfiguration wird auch der Preis zur aktuell geladenen Strommenge berechnet.
 
@@ -31,7 +31,7 @@ Es wird dringend empfohlen, eine angepasste Konfiguration mit Zugriff auf den go
 
 ## Fehlersuche
 
-- Wenn eine angepasste Konfiguration erstellt wurde und das Widget versucht, per Cloud auf den Charger zuzugreifen, wird das Symbol 🌐 neben dem Datum angezeigt. Dann kann aber immer noch das API-Token falsch sein und der Zugriff fehlschlagen.
+- Wenn eine angepasste Konfiguration erstellt wurde und das Widget versucht, per Cloud auf den Charger zuzugreifen, wird das Symbol 🌐 neben dem Datum angezeigt. Dann kann aber immer noch der Charger nicht erreichbar oder das API-Token falsch sein, und der Zugriff fehlschlagen.
 - Bitte beachten: Installierte Widgets lassen sich nicht manuell zum Aktualisieren überreden, sondern werden ausschließlich dann aktualisiert, wenn iOS glaubt, dass der richtige Zeitpunkt gekommen ist. Die Codezeile, die das Aktualisieren beschleunigen soll, wirkt nicht über den Placebo-Effekt hinaus. Zum Testen von Konfigurationsänderungen bitte das Widget direkt über die Scriptable-App aufrufen.
 
 ## Limitations
