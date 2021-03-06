@@ -33,9 +33,10 @@ Es wird dringend empfohlen, eine angepasste Konfiguration mit Zugriff auf den go
 
 Bitte beachten: Installierte Widgets lassen sich nicht manuell zum Aktualisieren überreden, sondern werden ausschließlich dann, wenn iOS glaubt, dass der richtige Zeitpunkt gekommen ist. Zum Testen von Konfigurationsänderungen bitte das Widget direkt über die Scriptable-App aufrufen.
 
-## Todo
+## Limitations
 
-- Internationalisierung. (Fork me on Github!)
+- Internationalisierung fehlt. (Fork me on Github!)
+- Scriptdude erfordert iCloud. Widget und Setup sollten bei manuellem Copy&Paste in die Scriptable-App ohne iCloud funktionieren, Test steht aus.
 
 ## Lizenz und Haftungsausschluss
 
