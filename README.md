@@ -37,7 +37,7 @@ Es wird dringend empfohlen, eine angepasste Konfiguration mit Zugriff auf den go
 ## Limitations
 
 - Internationalisierung fehlt. (Fork me on Github!)
-- Scriptdude erfordert iCloud. Widget und Setup funktionieren bei manuellem Copy&Paste in die Scriptable-App aber auch so.
+- Scriptdude erfordert iCloud. Widget und Setup sollten ohne iCloud bei manuellem Copy&Paste in die Scriptable-App auch so funktionieren. Tun sie aber nicht. Sorry.
 
 ## Lizenz und Haftungsausschluss
 
