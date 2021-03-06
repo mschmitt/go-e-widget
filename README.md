@@ -31,12 +31,13 @@ Es wird dringend empfohlen, eine angepasste Konfiguration mit Zugriff auf den go
 
 ## Fehlersuche
 
-Bitte beachten: Installierte Widgets lassen sich nicht manuell zum Aktualisieren überreden, sondern werden ausschließlich dann, wenn iOS glaubt, dass der richtige Zeitpunkt gekommen ist. Zum Testen von Konfigurationsänderungen bitte das Widget direkt über die Scriptable-App aufrufen.
+- Wenn eine angepasste Konfiguration erstellt wurde und das Widget versucht, per Cloud auf den Charger zuzugreifen, wird das Symbol 🌐 neben dem Datum angezeigt. Dann kann aber immer noch das API-Token falsch sein und der Zugriff fehlschlagen.
+- Bitte beachten: Installierte Widgets lassen sich nicht manuell zum Aktualisieren überreden, sondern werden ausschließlich dann aktualisiert, wenn iOS glaubt, dass der richtige Zeitpunkt gekommen ist. Die Codezeile, die das Aktualisieren beschleunigen soll, wirkt nicht über den Placebo-Effekt hinaus. Zum Testen von Konfigurationsänderungen bitte das Widget direkt über die Scriptable-App aufrufen.
 
 ## Limitations
 
 - Internationalisierung fehlt. (Fork me on Github!)
-- Scriptdude erfordert iCloud. Widget und Setup sollten bei manuellem Copy&Paste in die Scriptable-App ohne iCloud funktionieren, Test steht aus.
+- Scriptdude erfordert iCloud. Widget und Setup funktionieren bei manuellem Copy&Paste in die Scriptable-App aber auch so.
 
 ## Lizenz und Haftungsausschluss
 

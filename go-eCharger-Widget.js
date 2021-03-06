@@ -34,12 +34,15 @@ config_file = fm.joinPath(fm.documentsDirectory(), config_file)
 // Read config or fall back to defaults
 let config = new Object()
 let api_url
+let connection_icon = ''
 if (running_on_icloud && fm.fileExists(config_file)) {
 	await fm.downloadFileFromiCloud(config_file)
 	config = JSON.parse(fm.readString(config_file))
 	api_url='https://api.go-e.co/api_status?token=' + config.apitoken
+	connection_icon = ' 🌐' // Globe with Meridians
 }else{
 	api_url='http://go-echarger/status'
+	running_on_cloud_api = 0
 }
 
 // Now parse configuration from config_file
@@ -115,7 +118,7 @@ async function createWidget() {
                 unreachable.textColor = Color.black()
                 unreachable.centerAlignText()
         }
-        const timestamp = list.addText(status.time)
+        const timestamp = list.addText(status.time + connection_icon)
         timestamp.textColor = Color.black()
         timestamp.font = Font.mediumSystemFont(10)
         timestamp.centerAlignText()
