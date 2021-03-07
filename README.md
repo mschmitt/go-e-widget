@@ -37,6 +37,8 @@ Es wird dringend empfohlen, eine angepasste Konfiguration mit Zugriff auf den go
 ## Limitations
 
 - Internationalisierung fehlt. (Fork me on Github!)
+- Leicht unklar, was bei Klick aufs Widget passiert und passieren soll. Dass die App des go-eCharger kein URL-Schema registriert ist dezent unbefriedigend, die Auto-Apps haben aber i.d.R. URL-Schemata.
+- Nicht für einen zweiten Charger konfigurierbar, bitte in diesem Fall site-spezifisch innerhalb der Scripts am Namen der Konfigurationsdatei rummachen.
 - Scriptdude erfordert iCloud. Widget und Setup sollten ohne iCloud bei manuellem Copy&Paste in die Scriptable-App auch so funktionieren. Tun sie aber nicht. Sorry.
 
 ## Lizenz und Haftungsausschluss
