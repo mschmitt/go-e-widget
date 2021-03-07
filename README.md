@@ -1,4 +1,4 @@
-# Scriptable Widget für den go-eCharger
+# Scriptable Widget für den [go-eCharger](https://go-e.co/)
 
 ![Screenshot](https://raw.githubusercontent.com/mschmitt/go-e-widget/main/screenshot.jpg)
 
@@ -15,7 +15,7 @@ Installation über Scriptable.app und den Scriptdude-Paketmanager:
 
 ## Standardkonfiguration
 
-In der Standardkonfiguration greift das Widget per Wifi direkt auf das API des go-eCharger im selben Netz zu, über den standardmäßigen vom Charger angeforderten DHCP-Hostnamen "go-echarger". Das muss nicht überall funktionieren und wird selbst unter günstigen Umständen immer dann zu Problemen führen, wenn das iPhone aus dem Ruhezustand aufwacht und versucht, das Widget zu aktualisieren, während es noch nicht mit Wifi verbunden ist.
+In der Standardkonfiguration greift das Widget per Wifi direkt auf das API des go-eCharger im selben Netz zu, über den standardmäßigen vom Charger angeforderten DHCP-Hostnamen "go-echarger". Das muss nicht überall funktionieren und wird selbst unter günstigen Umständen regelmäßig zu Problemen führen, wenn das iPhone aus dem Ruhezustand aufwacht und versucht, das Widget zu aktualisieren, während es noch nicht mit Wifi verbunden ist.
 
 Es wird dringend empfohlen, eine angepasste Konfiguration mit Zugriff auf den go-eCharger über die Cloud zu machen. In einer angepassten Konfiguration wird auch der Preis zur aktuell geladenen Strommenge berechnet.
 
