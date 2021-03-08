@@ -37,6 +37,7 @@ if (!fm.fileExists(config_file)){
 	sample_config.apitoken = "01234abcde"
 	sample_config.price = 0.2755
 	sample_config.currency = "â‚¬"
+	sample_config.url = "https://app.go-e.co/"
 	await fm.writeString(config_file, JSON.stringify(sample_config, null, 2))
 }
 
@@ -50,6 +51,7 @@ alert.message = "Bitte Werte passend bearbeiten:\n- API-Token\n- Preis/kWh\n- WÃ
 alert.addTextField(config.apitoken, config.apitoken)
 alert.addTextField(config.price.toString(), config.price.toString())
 alert.addTextField(config.currency, config.currency)
+alert.addTextField(config.url, config.url)
 alert.addAction("OK")
 alert.addCancelAction("Abbruch")
 let action = await alert.present()
@@ -60,5 +62,6 @@ if (action == 0) {
 	// https://stackoverflow.com/a/5661399/263310
 	config.price = +(alert.textFieldValue(1).replace(/,/,'.'))
 	config.currency = alert.textFieldValue(2)
+	config.url = alert.textFieldValue(3)
 	await fm.writeString(config_file, JSON.stringify(config, null, 2))
 }

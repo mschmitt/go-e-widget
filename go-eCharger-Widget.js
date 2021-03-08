@@ -49,57 +49,55 @@ if (running_on_icloud && fm.fileExists(config_file)) {
 
 const widget = await createWidget()
 if (!config.runsInWidget) {
-        await widget.presentSmall()
+	await widget.presentSmall()
 }
 Script.setWidget(widget)
 Script.complete()
 
 async function createWidget() {
-        const status = await getChargerStatus()
-        const list = new ListWidget()
-        list.backgroundColor = Color.white()
-        list.setPadding(0, 0, 0, 0)
-        // Rumor has it: Setting a low minimum refresh interval makes for
-        // more frequent refreshes. (I doubt this is how any of this works.)
-        list.refreshAfterDate = new Date(Date.now() + 60000)
-        // On widget click:
-        // > Open scriptable.app
-        //  > Open shortcuts app
-        //   > run the go-eCharger app through the following Siri shortcut
-        //     https://www.icloud.com/shortcuts/fedc00550c634742b33d596551e8346e
-        //     (Workaround bc as of now, the app doesn't register a URL schema.)
-        list.url = 'shortcuts://run-shortcut?name=go-eCharger'
-        const header = list.addText("go-eCharger")
-        header.font = Font.boldSystemFont(20)
-        header.textColor = Color.black()
-        header.centerAlignText()
-        let icon
-        if (status.success){
+	const status = await getChargerStatus()
+	const list = new ListWidget()
+	list.backgroundColor = Color.white()
+	list.setPadding(0, 0, 0, 0)
+	// Rumor has it: Setting a low minimum refresh interval makes for
+	// more frequent refreshes. (I doubt this is how any of this works.)
+	list.refreshAfterDate = new Date(Date.now() + 60000)
+	// On widget click:
+	list.url = "https://app.go-e.co"
+	if (config.url) {
+		list.url = config.url
+	}
+	const header = list.addText("go-eCharger")
+	header.font = Font.boldSystemFont(20)
+	header.textColor = Color.black()
+	header.centerAlignText()
+	let icon
+	if (status.success){
 		let carstatus
 		if (status.car == "1"){
 			carstatus = list.addText("Kein Fahrzeug verbunden.")
-                        icon = list.addText("💤🔌") // Zzz and plug
+			icon = list.addText("💤🔌") // Zzz and plug
 		} else if (status.car == "2"){
 			carstatus = list.addText("Fahrzeug wird geladen.")
-                        icon = list.addText("🟢🔌") // Green circle and plug
+			icon = list.addText("🟢🔌") // Green circle and plug
 		} else if (status.car == "3"){
 			carstatus = list.addText("Warte auf Fahrzeug.")
-                        icon = list.addText("⏸️🔌") // Pause button and plug
+			icon = list.addText("⏸️🔌") // Pause button and plug
 		} else if (status.car == "4"){
 			carstatus = list.addText("Ladevorgang beendet.")
-                        icon = list.addText("✅🔌") // Check mark button and plug
+			icon = list.addText("✅🔌") // Check mark button and plug
 		} else {
-                        // After a valid API response, this else should really never hit.
-                        carstatus = list.addText("Kein Fahrzeugstatus.")
-                        icon = list.addText("❓🤷") // Question mark and shrugging person
+			// After a valid API response, this else should really never hit.
+			carstatus = list.addText("Kein Fahrzeugstatus.")
+			icon = list.addText("❓🤷") // Question mark and shrugging person
 		}
 		carstatus.textColor = Color.black()
 		carstatus.font = Font.mediumSystemFont(10)
 		carstatus.centerAlignText()
-                const power = list.addText(status.nrg_kw + ' kW')
-                power.font = Font.boldSystemFont(32)
-                power.textColor = Color.black()
-                power.centerAlignText()
+		const power = list.addText(status.nrg_kw + ' kW')
+		power.font = Font.boldSystemFont(32)
+		power.textColor = Color.black()
+		power.centerAlignText()
 		let kwh
 		if (status.nrg_kwh > 0) {
 			if (config.price && config.currency){
@@ -111,46 +109,46 @@ async function createWidget() {
 			kwh.font = Font.boldSystemFont(10)
 			kwh.centerAlignText()
 		}
-        }else{
-                icon = list.addText("❓🤷") // Question mark and shrugging person
-                // Wallbox or API not reachable
-                const unreachable = list.addText("Wallbox oder API\nnicht erreichbar.")
-                unreachable.textColor = Color.black()
-                unreachable.centerAlignText()
-        }
-        const timestamp = list.addText(status.time + connection_icon)
-        timestamp.textColor = Color.black()
-        timestamp.font = Font.mediumSystemFont(10)
-        timestamp.centerAlignText()
-        icon.font = Font.boldSystemFont(40)
-        icon.centerAlignText()
-        return list
+	}else{
+		icon = list.addText("❓🤷") // Question mark and shrugging person
+		// Wallbox or API not reachable
+		const unreachable = list.addText("Wallbox oder API\nnicht erreichbar.")
+		unreachable.textColor = Color.black()
+		unreachable.centerAlignText()
+	}
+	const timestamp = list.addText(status.time + connection_icon)
+	timestamp.textColor = Color.black()
+	timestamp.font = Font.mediumSystemFont(10)
+	timestamp.centerAlignText()
+	icon.font = Font.boldSystemFont(40)
+	icon.centerAlignText()
+	return list
 }
 
 async function getChargerStatus() {
-        let status = {}
-        status.time = new Date().toLocaleString()
-        try {
-                let request = new Request(api_url)
-                request.timeoutInterval = 30
-                let rawdata = await request.loadJSON()
-                let data = rawdata
-                // If we're going through api.go-e.co,
-                // dig down to the actual data object
-                if (rawdata.data){
-                        data = rawdata.data
-                }
-                // For testing / demo / screenshots:
-                // data.nrg[11] = 444.444
-                // data.nrg[11] = 1080
-                status.nrg_kw = (data.nrg[11] / 100).toFixed(1)
+	let status = {}
+	status.time = new Date().toLocaleString()
+	try {
+		let request = new Request(api_url)
+		request.timeoutInterval = 30
+		let rawdata = await request.loadJSON()
+		let data = rawdata
+		// If we're going through api.go-e.co,
+		// dig down to the actual data object
+		if (rawdata.data){
+			data = rawdata.data
+		}
+		// For testing / demo / screenshots:
+		// data.nrg[11] = 444.444
+		// data.nrg[11] = 1080
+		status.nrg_kw = (data.nrg[11] / 100).toFixed(1)
 		status.nrg_kwh = ((data.dws * 10) / 3600000).toFixed(1)
 		status.car = data.car
-                if (data.sse){
-                        status.success = true
-                }
-        }catch(e){
-                status.success = false
-        }
-        return status
+		if (data.sse){
+			status.success = true
+		}
+	}catch(e){
+		status.success = false
+	}
+	return status
 }

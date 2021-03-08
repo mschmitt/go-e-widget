@@ -28,16 +28,22 @@ Es wird dringend empfohlen, eine angepasste Konfiguration mit Zugriff auf den go
   - API-Token (Cloud Token)
   - Preis pro Kilowattstunde
   - Währungssymbol
+  - URL, der beim Antippen des Widget aufgerufen werden soll. Einige Beispiel-URLs:
+    - https://app.go-e.co (Voreinstellung)
+    - [teslamotors://](teslamotors://) (um die Tesla-App zu starten)
+    - [myaudi://](myaudi://) (um die Audi-App zu starten)
+    - [fb687498638272161://](fb687498638272161://) (um die Hyndai-App zu starten)
 
 ## Fehlersuche
 
 - Wenn eine angepasste Konfiguration erstellt wurde und das Widget versucht, per Cloud auf den Charger zuzugreifen, wird das Symbol 🌐 neben dem Datum angezeigt. Dann kann aber immer noch der Charger nicht erreichbar oder das API-Token falsch sein, und der Zugriff fehlschlagen.
 - Bitte beachten: Installierte Widgets lassen sich nicht manuell zum Aktualisieren überreden, sondern werden ausschließlich dann aktualisiert, wenn iOS glaubt, dass der richtige Zeitpunkt gekommen ist. Die Codezeile, die das Aktualisieren beschleunigen soll, wirkt nicht über den Placebo-Effekt hinaus. Zum Testen von Konfigurationsänderungen bitte das Widget direkt über die Scriptable-App aufrufen.
+- Ein in der angepassten Konfiguration geänderter URL kann wirklich erst getestet werden, wenn das Widget aktualisiert wurde.
 
 ## Limitations
 
 - Internationalisierung fehlt. (Fork me on Github!)
-- Leicht unklar, was bei Klick aufs Widget passiert und passieren soll. Dass die App des go-eCharger kein URL-Schema registriert ist dezent unbefriedigend, die Auto-Apps haben aber i.d.R. URL-Schemata.
+- Die native App des go-eCharger registriert kein URL-Schema, aber da sie selbst nur ein Web-View ist, funktioniert die Verknüpfung über https://app.go-e.co genau so, nur im Browser.
 - Nicht für einen zweiten Charger konfigurierbar, bitte in diesem Fall site-spezifisch innerhalb der Scripts am Namen der Konfigurationsdatei rummachen.
 - Scriptdude erfordert iCloud. Widget und Setup sollten ohne iCloud bei manuellem Copy&Paste in die Scriptable-App auch so funktionieren. Tun sie aber nicht. Sorry.
 
