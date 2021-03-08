@@ -32,7 +32,7 @@ Es wird dringend empfohlen, eine angepasste Konfiguration mit Zugriff auf den go
     - https://app.go-e.co (Voreinstellung)
     - [teslamotors://](teslamotors://) (um die Tesla-App zu starten)
     - [myaudi://](myaudi://) (um die Audi-App zu starten)
-    - [fb687498638272161://](fb687498638272161://) (um die Hyndai-App zu starten)
+    - [fb687498638272161://](fb687498638272161://) (um die Hyundai-App zu starten)
 
 ## Fehlersuche
 
